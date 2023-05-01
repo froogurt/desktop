@@ -1,0 +1,42 @@
+# Apply gtk theming
+exec_always ~/.config/sway/scripts/import-gsettings
+
+default_border pixel 2
+# default_border none
+# for_window [class=".*"] border pixel 2
+default_floating_border none 
+# hide_edge_borders smart
+gaps inner 8 
+gaps outer 0
+gaps bottom 1
+gaps top 1
+
+# SwayFx options
+corner_radius 8
+# smart_corner_radius on
+
+# Default Font
+font pango:Noto Sans Regular 10
+
+# Set wallpaper:
+exec swaybg -i ~/Pictures/gruv_tux.jpg
+
+# Title format for windows
+for_window [shell="xdg_shell"] title_format "%title (%app_id)"
+for_window [shell="x_wayland"] title_format "%class - %title"
+
+# class                 border  bground text    indicator child_border
+client.focused          #ebdbb2 #ebdbb2 #fbf1c7 #ebdbb2   #ebdbb2
+client.focused_inactive #bdae93 #bdae93 #fbf1c7 #bdae93   #bdae93
+client.unfocused        #665c54 #665c54 #d5c4a1 #665c54   #665c54
+client.urgent           #bdae93 #fb4934 #fbf1c7 #FF5555   #FF5555
+client.placeholder      #3c3836 #3c3836 #fbf1c7 #3c3836   #3c3836
+client.background       #fbf1c7
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command waybar
+}
